@@ -25,7 +25,7 @@ def htmlify(title,text):
 
 def index():
     return htmlify("My lovely website",
-                   "This is going to be an awesome website, when it is finished.")
+                   "This is going to be an awesome website, when it is finished. Some changes here. This is for step 4")
 
 route('/', 'GET', index)
 
