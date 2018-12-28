@@ -244,6 +244,7 @@ def htmlify(text):
 
 def print_forum(text):
 	global Comments
+	global html
 	html= '''<form action="/contact" method="post">
 				<input type="radio" name="option" value="Register" checked>Register
 				<input type="radio" name="option" value="Comment">Comment<br/><br/>
