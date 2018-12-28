@@ -329,7 +329,6 @@ table { table-layout: fixed; }
 }
 .main .comment:hover{
 	border-color:#F08080;
-	background: rgb(240,128,128, 0.7);
 }
 .main input:hover{
 	border-color:#F08080;
