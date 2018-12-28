@@ -240,30 +240,10 @@ def htmlify(text):
 
     """ % (text)
     return page
-    
-    
-def print_comments(html):
-	global Comments
-	for item in Comments:
-		if(item[0]=="Admin"):
-			html+= '''
-				<div class="Admincomments">
-					<p><strong>%s :</strong></p> <br/>
-					<hr/>
-					<p>%s</p>
-				</div>
-				''' %(item[0],item[1])
-		else:
-			html+= '''
-				<div class="usercomments">
-					<p><strong>%s :</strong></p> <br/>
-					<hr/>
-					<p>%s</p>
-				</div>
-				''' %(item[0],item[1])
-	return html
+
 
 def print_forum(text):
+	global Comments
 	html= '''<form action="/contact" method="post">
 				<input type="radio" name="option" value="Register" checked>Register
 				<input type="radio" name="option" value="Comment">Comment<br/><br/>
@@ -283,6 +263,24 @@ def print_forum(text):
 			</form> 
 				
 				'''%(text)
+				
+	for item in Comments:
+		if(item[0]=="Admin"):
+			html+= '''
+				<div class="Admincomments">
+					<p><strong>%s :</strong></p> <br/>
+					<hr/>
+					<p>%s</p>
+				</div>
+				''' %(item[0],item[1])
+		else:
+			html+= '''
+				<div class="usercomments">
+					<p><strong>%s :</strong></p> <br/>
+					<hr/>
+					<p>%s</p>
+				</div>
+				''' %(item[0],item[1])			
 	return html
     
 option=""
@@ -302,10 +300,8 @@ def get_option():
 		option=""
 		if(registration==True):
 			html=print_forum("Your registration is successful")
-			html=print_comments(html)
 		else:
-			html=print_forum("This username has been already taken")
-			html=print_comments(html)	
+			html=print_forum("This username has been already taken")	
 			
 	elif(option=="Comment"):
 		member=Comment(name,password)
@@ -320,7 +316,6 @@ def get_option():
 		else:
 			html=""
 			html=print_forum("Your username or password is not corrent")
-			html=print_comments(html)
 				
 	return htmlify(html)
 		
@@ -330,8 +325,7 @@ def index():
 	global Comments
 	global html
 	html=""
-	html= print_forum("")
-	html=print_comments(html)			
+	html= print_forum("")			
 					
 	return htmlify(html)
 	
