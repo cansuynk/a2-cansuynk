@@ -274,14 +274,15 @@ def print_forum(text):
 					<p>%s</p>
 				</div>
 				''' %(item[0],item[1])
-		else:
-			html+= '''
-				<div class="usercomments">
-					<p><strong>%s :</strong></p> <br/>
+				continue
+		
+		html+= '''
+			<div class="usercomments">
+				<p><strong>%s :</strong></p> <br/>
 					
-					<p>%s</p>
-				</div>
-				''' %(item[0],item[1])			
+				<p>%s</p>
+			</div>
+			''' %(item[0],item[1])			
 	return html
     
 option=""
