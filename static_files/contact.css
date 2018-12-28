@@ -327,10 +327,18 @@ table { table-layout: fixed; }
 	font-size: 13px;
 
 }
+.main .comment:hover{
+	border-color:#F08080;
+	background: rgb(240,128,128, 0.7);
+}
+.main input:hover{
+	border-color:#F08080;
+	background: rgb(240,128,128, 0.7);
+}
 .main .usercomments{
 	font-size: 13px;
 	width: 87%;
-	height: 75px;
+	height: auto;
 	background: rgb(255, 153, 255, 0.7);
 	margin: 0 auto;
 	border-radius: 8px;
@@ -341,15 +349,14 @@ table { table-layout: fixed; }
 .main .usercomments p{
 	font-size: 15px;
 	font-family: Calibri, Georgia, Arial;
-	float: left;
+	text-align: left;
 	padding-left: 3%;
-	font-style:italic;
-	
+	font-style: italic;
 }
 .main .Admincomments{
 	font-size: 13px;
 	width: 87%;
-	height: 75px;
+	height: auto;
 	background: rgb(204, 0, 153, 0.7);
 	margin: 0 auto;
 	border-radius: 8px;
@@ -361,12 +368,14 @@ table { table-layout: fixed; }
 	font-size: 16px;
 	color:#4d2600;
 	font-family: Calibri, Georgia, Arial;
-	float: left;
+	text-align: left;
 	padding-left: 3%;
 	font-style:italic;
 	
 }
-
+input:focus, select:focus, textarea:focus, botton:focus {
+	outline: none;
+}
 .main .thanks{
 	padding-bottom: 2%;
 	float: right;

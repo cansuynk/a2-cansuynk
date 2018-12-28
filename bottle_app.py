@@ -292,16 +292,14 @@ def print_forum(text):
 		if(item[0]=="Admin:"):
 			html+= '''
 				<div class="Admincomments">
-					<p><strong>%s </strong></p> <br/>
-					
+					<p><strong>%s </strong></p>
 					<p>%s</p>
 				</div>
 				''' %(item[0],item[1])
 			continue
 		html+= '''
 			<div class="usercomments">
-				<p><strong>%s </strong></p> <br/>
-					
+				<p><strong>%s </strong></p>
 				<p>%s</p>
 			</div>
 				''' %(item[0],item[1])			
