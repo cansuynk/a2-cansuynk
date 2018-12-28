@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HOME</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"/>
+<link rel="stylesheet" href="/style.css" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css' media='all' />
+<link rel='stylesheet' id='googlefonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic&subset=latin,latin-ext' type='text/css' media='all' />
+<link rel="shortcut icon" type="image/png" href="/images/logo.png" />
+</head>
+
+<body style="background-color:#F5B7B1">
+<div class="topmain">
+	<div class="sides">
+		<img src="images/side.png" width="150" alt="Sidepicture" />
+	
+	</div>
+
+
+<div class="main">
+	
+	
+
+	<div class="header">
+		<div class="logo">
+			<a href="./index.html"><img src="images/logo.png" width="300" height="300" alt="LOGO" /></a>
+		</div>
+
+		<div class="header-right">
+			<div class="slogan"><span class="slogan-item">ISAAC ASIMOV</span></div>
+		</div>
+	</div>
+
+	<div class="navbar">
+		<div id="menu">
+			<ul>
+				<li><a class="active" href="./index.html">HOME</a></li>
+				<li><a href="./about.html">ABOUT ISAAC ASIMOV</a></li>
+				<li class="dropdown">
+					<a href="javascript:void(0)" class="dropbtn">BOOKS<i class="fas fa-caret-down"></i></a>
+					<div class="books-content">
+						<div id="menu2">
+						<a href="./hisbooks.html">HIS BOOKS</a>
+						<a href="./booksiread.html">BOOKS I READ</a>
+						</div>
+					</div>
+				</li>
+				<li style="float:right"><a href="/contact">CONTACT</a></li>
+			</ul>				
+		</div>
+	</div>
+	
+	<div class="title"><p><strong>Hello to everyone! This website is about ISAAC ASIMOV and his works.</strong></p></div>
+
+	<div class="content">
+	  <img src="images/content.png" alt="Isaac Asimov" />
+	</div>
+	
+	<div class="container">
+		
+		
+		<div class="contentt">
+			<p>
+				<img src="images/star.png" width="20" height="20" alt="Staricon" />
+				Isaac Asimov is my favorite author. In my opinion, he is one of the best science-fiction authors of all time. 
+				As mentioned in the article 
+				<a href="https://interestingengineering.com/isaac-asimovs-biography-the-pebble-in-the-sky?fbclid=IwAR1BRFDTvR0r2dbzmvUAsOiP4oLvGsbQTRzP3NxTTu3q2wGgpY450jgh4Fs" target="_blank">
+				<em>"Isaac Asimov's Biography: The Pebble in the Sky",</em></a> his books really inspired me to take up dare to dream of the future of mankind and 
+				helped me to understand the Universe, Galaxies, Stars, etc. I can even say that his books changed my perspective on life 
+				and they helped me to look wider and wisely to the life.
+			</p>
+	
+			<p>
+				<img src="images/star.png" width="20" height="20" alt="Staricon" />
+				He creates a universe in his books, and most of his books (actually all his books which I have read) helps to form a part of this universe.
+				You can find yourself in a great adventure.
+			</p>
+			<p>
+				<img src="images/star.png" width="20" height="20" alt="Staricon" />
+				Due to all of these reasons, I really admire him and his works. Therefore, I wanted to introduce him to you and 
+				I would highly recommend everyone to read his books.
+			</p>
+				<hr/>
+				<p><img src="images/star.png" width="20" height="20" alt="Staricon" />If you want to learn more information about him and his work you can visit 
+				<a href="https://interestingengineering.com/isaac-asimovs-biography-the-pebble-in-the-sky?fbclid=IwAR1BRFDTvR0r2dbzmvUAsOiP4oLvGsbQTRzP3NxTTu3q2wGgpY450jgh4Fs" target="_blank"> 
+				this article </a> which is mentioned above.</p> 
+				<hr/>
+				<p><img src="images/star.png" width="20" height="20" alt="Staricon" />And <a href="./about.html">here's a brief biography of him.</a></p>
+		</div>
+		
+
+	</div>
+	
+	<div class="footer"><p>&copy; 2018, By Cansu YANIK</p></div>
+
+
+</div>
+
+	<div class="sides2">
+		<img src="images/side.png" width="150" alt="Sidepicture" />
+	
+	</div>
+
+</div>
+
+
+<script>
+	window.onscroll = function() {myFunction()};
+
+	var menu = document.getElementById("menu");
+	var sticky = menu.offsetTop;
+	
+	var menu2 = document.getElementById("menu2");
+	var sticky2 = menu2.offsetTop;
+
+	function myFunction() {
+	  if (window.pageYOffset >= sticky) {
+		menu.classList.add("sticky")
+	  } else{
+		menu.classList.remove("sticky");
+	  }
+	  
+	  if (window.pageYOffset >= sticky) {
+		menu2.classList.add("books-content2")
+	  } else{
+		menu2.classList.remove("books-content2");
+	  }
+
+	}
+	
+	
+	
+	
+</script>
+
+</body>
+</html>
