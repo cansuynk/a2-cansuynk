@@ -309,13 +309,13 @@ table { table-layout: fixed; }
 }
 .main .content .comment{
 	font-size: 13px;
-	width: 90%;
+	width: 87%;
 	height: 100px;
 	background: rgba(226, 195, 226, 0.7);
 	margin: 0 auto;
 	border-radius: 8px;
 	margin-top: 5%;
-
+	padding-left: 3%;
 	border-collapse: collapse;
 	border: 2px solid gray;
 }
@@ -336,18 +336,15 @@ table { table-layout: fixed; }
 	border-radius: 8px;
 	border-collapse: collapse;
 	border: 2px solid gray;
+	padding-top: 2%;
 }
 .main .usercomments p{
 	font-size: 15px;
 	font-family: Calibri, Georgia, Arial;
 	float: left;
 	padding-left: 3%;
-	padding-bottom: 2%;
 	font-style:italic;
-}
-.main .usercomments hr{
-	float: left;
-
+	
 }
 .main .Admincomments{
 	font-size: 13px;
@@ -358,6 +355,7 @@ table { table-layout: fixed; }
 	border-radius: 8px;
 	border-collapse: collapse;
 	border: 2px solid gray;
+	padding-top: 2%;
 }
 .main .Admincomments p{
 	font-size: 16px;
@@ -365,19 +363,16 @@ table { table-layout: fixed; }
 	font-family: Calibri, Georgia, Arial;
 	float: left;
 	padding-left: 3%;
-	padding-bottom: 2%;
 	font-style:italic;
+	
 }
-.main .Admincomments hr{
-	float: left;
-}
+
 .main .thanks{
-	margin-bottom: 2%;
+	padding-bottom: 2%;
 	float: right;
 	font-style: italic;
 	
 }
-
 .main .content p 
 {
 	margin-top: 0px;
