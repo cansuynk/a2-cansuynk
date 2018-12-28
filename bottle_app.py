@@ -39,8 +39,8 @@ def Register(username, pw1):
 		with open('userdata.bin', 'ab') as f:
 			username=username+"\n"
 			hsh1=hsh1+"\n"
-			f.write(username)
-			f.write(hsh1)
+			f.write(username.encode('utf-8'))
+			f.write(hsh1.encode('utf-8'))
 		return True
 	else:
 		return False
@@ -337,8 +337,8 @@ def get_option():
 			with open('datafile.bin', 'ab') as f:
 				name=name+"\n"
 				comment=comment+"\n"
-				f.write(name)
-				f.write(comment)	
+				f.write(name.encode('utf-8'))
+				f.write(comment.encode('utf-8'))	
 			option=""
 			member=False
 			index()
