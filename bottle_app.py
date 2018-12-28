@@ -269,7 +269,7 @@ def print_forum(text):
 			html+= '''
 				<div class="Admincomments">
 					<p><strong>%s :</strong></p> <br/>
-					<hr/>
+				
 					<p>%s</p>
 				</div>
 				''' %(item[0],item[1])
@@ -277,7 +277,7 @@ def print_forum(text):
 			html+= '''
 				<div class="usercomments">
 					<p><strong>%s :</strong></p> <br/>
-					<hr/>
+					
 					<p>%s</p>
 				</div>
 				''' %(item[0],item[1])			
