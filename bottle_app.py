@@ -274,7 +274,7 @@ def print_forum(text):
 					<p>%s</p>
 				</div>
 				''' %(item[0],item[1])
-				continue
+			continue
 		
 		html+= '''
 			<div class="usercomments">
