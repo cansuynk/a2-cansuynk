@@ -183,7 +183,7 @@ def htmlify(text):
 				<p><strong><i>Note: If you are new here, please register before adding a comment :)</i></strong> </p>
 				<details>
 					<summary>
-						<p><strong>Open for steps</strong></p>
+						<strong>Open for steps</strong>
 					</summary>
 					<ol>
 						<li>
@@ -202,8 +202,6 @@ def htmlify(text):
 				%s
 				
 			</div>
-			
-			
 			
 			<p class="thanks">THANK YOU SO MUCH!</p>
 
@@ -295,7 +293,6 @@ def print_forum(text):
 			html+= '''
 				<div class="Admincomments">
 					<p><strong>%s </strong></p>
-					
 					<p>%s</p>
 				</div>
 				''' %(item[0],item[1])
@@ -303,7 +300,6 @@ def print_forum(text):
 		html+= '''
 			<div class="usercomments">
 				<p><strong>%s </strong></p>
-					
 				<p>%s</p>
 			</div>
 				''' %(item[0],item[1])			
