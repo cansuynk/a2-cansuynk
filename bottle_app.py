@@ -14,7 +14,6 @@ def create_hash(password):
 
 #Taking from https://bitbucket.org/damienjadeduff/hashing_example/raw/master/hash_password.py
 
-Comments = []
 Passwords = {}
 
 index = 0
@@ -24,15 +23,30 @@ password_found = False
 def Register(username, pw1):
 	global Passwords
 	hsh1 = create_hash(pw1)
+	Passwords = {}
+	data_file = open ("userdata.bin", "rb")
+	while True:
+		usernames = data_file.readline().decode('utf-8')
+		
+		if not usernames:
+			break;
+		password = data_file.readline().decode('utf-8')
+		Passwords[usernames.strip()]=password.strip()
+		
+	data_file.close()   
 	if(username not in Passwords):
 		Passwords[username]=hsh1
+		with open('userdata.bin', 'ab') as f:
+			username=username+"\n"
+			hsh1=hsh1+"\n"
+			f.write(username)
+			f.write(hsh1)
 		return True
 	else:
 		return False
 	
 def Comment(username, pw1):
 	global Passwords
-	global Comments
 	
 	hsh2 = create_hash(pw1)
 	
@@ -243,7 +257,6 @@ def htmlify(text):
 
 
 def print_forum(text):
-	global Comments
 	global html
 	html= '''<form action="/contact" method="post">
 				<input type="radio" name="option" value="Register" checked>Register
@@ -264,25 +277,39 @@ def print_forum(text):
 			</form> 
 				
 				'''%(text)
+	Comments_file=[]
+	data_file = open ("datafile.bin", "rb")
+	while True:
+		username = data_file.readline().decode('utf-8')
+		
+		if not username:
+			break;
+		comment = data_file.readline().decode('utf-8')
+		User=[]
+		User.append(username.strip()+":")
+		User.append(comment.strip())
+		Comments_file.append(User)
+		
+	data_file.close()   
+	
 				
-	for item in Comments:
-		if(item[0]=="Admin"):
+	for item in Comments_file:
+		if(item[0]=="Admin:"):
 			html+= '''
 				<div class="Admincomments">
-					<p><strong>%s :</strong></p> <br/>
-				
+					<p><strong>%s </strong></p> <br/>
+					
 					<p>%s</p>
 				</div>
 				''' %(item[0],item[1])
 			continue
-		
 		html+= '''
 			<div class="usercomments">
-				<p><strong>%s :</strong></p> <br/>
+				<p><strong>%s </strong></p> <br/>
 					
 				<p>%s</p>
 			</div>
-			''' %(item[0],item[1])			
+				''' %(item[0],item[1])			
 	return html
     
 option=""
@@ -291,7 +318,6 @@ def get_option():
 	global option
 	option=request.POST["option"]
 	global html
-	global Comments
 	
 	name=request.POST["name"]
 	password=request.POST["password"]
@@ -308,10 +334,11 @@ def get_option():
 	elif(option=="Comment"):
 		member=Comment(name,password)
 		if(member==True):
-			userandcomment = []
-			userandcomment.append(name)
-			userandcomment.append(comment)
-			Comments.append(userandcomment)
+			with open('datafile.bin', 'ab') as f:
+				name=name+"\n"
+				comment=comment+"\n"
+				f.write(name)
+				f.write(comment)	
 			option=""
 			member=False
 			index()
@@ -324,7 +351,6 @@ def get_option():
 	 
 
 def index():
-	global Comments
 	global html
 	html=""
 	html= print_forum("")			
