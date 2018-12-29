@@ -24,23 +24,23 @@ def Register(username, pw1):
 	global Passwords
 	hsh1 = create_hash(pw1)
 	Passwords = {}
-	data_file = open("./userdata.bin", "rb")
+	data_file = open("./userdata.txt", "r")
 	while True:
-		usernames = data_file.readline().decode('utf-8')
+		usernames = data_file.readline()
 		
 		if not usernames:
 			break;
-		password = data_file.readline().decode('utf-8')
+		password = data_file.readline()
 		Passwords[usernames.strip()]=password.strip()
 		
 	data_file.close()   
 	if(username not in Passwords):
 		Passwords[username]=hsh1
-		with open('./userdata.bin', 'ab') as f:
+		with open('./userdata.txt', 'a') as f:
 			username=username+"\n"
 			hsh1=hsh1+"\n"
-			f.write(username.encode('utf-8'))
-			f.write(hsh1.encode('utf-8'))
+			f.write(username)
+			f.write(hsh1)
 		return True
 	else:
 		return False
@@ -273,13 +273,13 @@ def print_forum(text):
 				
 				'''%(text)
 	Comments_file=[]
-	data_file = open ("./datafile.bin", "rb")
+	data_file = open ("./datafile.txt", "r")
 	while True:
-		username = data_file.readline().decode('utf-8')
+		username = data_file.readline()
 		
 		if not username:
 			break;
-		comment = data_file.readline().decode('utf-8')
+		comment = data_file.readline()
 		User=[]
 		User.append(username.strip()+":")
 		User.append(comment.strip())
@@ -327,11 +327,11 @@ def get_option():
 	elif(option=="Comment"):
 		member=Comment(name,password)
 		if(member==True):
-			with open('./datafile.bin', 'ab') as f:
+			with open('./datafile.txt', 'a') as f:
 				name=name+"\n"
 				comment=comment+"\n"
-				f.write(name.encode('utf-8'))
-				f.write(comment.encode('utf-8'))	
+				f.write(name)
+				f.write(comment)	
 			option=""
 			member=False
 			index()
