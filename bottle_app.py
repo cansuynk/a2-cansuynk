@@ -24,7 +24,7 @@ def Register(username, pw1):
 	global Passwords
 	hsh1 = create_hash(pw1)
 	Passwords = {}
-	data_file = open ("userdata.bin", "rb")
+	data_file = open("./userdata.bin", "rb")
 	while True:
 		usernames = data_file.readline().decode('utf-8')
 		
@@ -36,7 +36,7 @@ def Register(username, pw1):
 	data_file.close()   
 	if(username not in Passwords):
 		Passwords[username]=hsh1
-		with open('userdata.bin', 'ab') as f:
+		with open('./userdata.bin', 'ab') as f:
 			username=username+"\n"
 			hsh1=hsh1+"\n"
 			f.write(username.encode('utf-8'))
@@ -273,7 +273,7 @@ def print_forum(text):
 				
 				'''%(text)
 	Comments_file=[]
-	data_file = open ("datafile.bin", "rb")
+	data_file = open ("./datafile.bin", "rb")
 	while True:
 		username = data_file.readline().decode('utf-8')
 		
@@ -327,7 +327,7 @@ def get_option():
 	elif(option=="Comment"):
 		member=Comment(name,password)
 		if(member==True):
-			with open('datafile.bin', 'ab') as f:
+			with open('./datafile.bin', 'ab') as f:
 				name=name+"\n"
 				comment=comment+"\n"
 				f.write(name.encode('utf-8'))
