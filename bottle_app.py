@@ -187,10 +187,10 @@ def htmlify(text):
 					</summary>
 					<ol>
 						<li>
-							<strong>Select "Register" option for registration or select "Comment" for adding comment</strong>
+							<strong>Enter your name and password</strong>
 						</li>
 						<li>
-							<strong>Enter your name and password</strong>
+							<strong>Select "Register" option for registration or select "Comment" for adding comment</strong>
 						</li>
 						<li>
 							<strong>Submit your changes</strong>
@@ -254,16 +254,18 @@ def htmlify(text):
 def print_forum(text):
 	global html
 	html= '''<form action="/contact" method="post">
-				<input type="radio" name="option" value="Register" checked>Register
-				<input type="radio" name="option" value="Comment">Comment<br/><br/>
-				
+				<br/><br/>
 				Your Username:
 				<input type="text" name="name" placeholder="Name">
 					  
 				Your Password:
 				<input type="password" name="password" placeholder="Password">
 					  
-				<input type="submit" value="Submit">
+				<input type="submit" value="Submit"><br/><br/>
+				
+				<input type="radio" name="option" value="Register" checked>Register
+				<input type="radio" name="option" value="Comment">Comment
+				
 				<br/><br/><p>%s</p>
 				<div class="comment">
 					<input type="text" name="comment" placeholder="Write your comment here"/>
