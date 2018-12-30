@@ -16,26 +16,14 @@ def create_hash(password):
 
 Passwords = {}
 
-index = 0
-password_index = 0
-password_found = False
-
+#Checks the user information for registration
 def Register(username, pw1):
 	global Passwords
 	hsh1 = create_hash(pw1)
-	Passwords = {}
-	data_file = open("./userdata.txt", "r")
-	while True:
-		usernames = data_file.readline()
-		
-		if not usernames:
-			break;
-		password = data_file.readline()
-		Passwords[usernames.strip()]=password.strip()
-		
-	data_file.close()   
+	  
 	if(username not in Passwords):
 		Passwords[username]=hsh1
+		#Saves new record to the file
 		with open('./userdata.txt', 'a') as f:
 			username=username+"\n"
 			hsh1=hsh1+"\n"
@@ -44,7 +32,8 @@ def Register(username, pw1):
 		return True
 	else:
 		return False
-	
+
+#Checks the user information for comment	
 def Comment(username, pw1):
 	global Passwords
 	
@@ -55,9 +44,8 @@ def Comment(username, pw1):
 			return True
 		else:
 			return False
-	
-	
 
+#Prints the page
 def htmlify(text):
     page = """
         <!DOCTYPE html>
@@ -246,15 +234,14 @@ def htmlify(text):
 </body>
 </html>
 
-
     """ % (text)
     return page
 
-
+#Prints content of comment section
 def print_forum(text):
 	global html
 	html= '''<form action="/contact" method="post">
-				<br/><br/>
+				<br/><br/>			
 				Your Username:
 				<input type="text" name="name" placeholder="Name">
 					  
@@ -274,6 +261,7 @@ def print_forum(text):
 			</form> 
 				
 				'''%(text)
+	#Reads the comments from file and keeps them into a list
 	Comments_file=[]
 	data_file = open ("./datafile.txt", "r")
 	while True:
@@ -286,10 +274,22 @@ def print_forum(text):
 		User.append(username.strip()+":")
 		User.append(comment.strip())
 		Comments_file.append(User)
-		
-	data_file.close()   
+	data_file.close()  
 	
-				
+	#Reads the user information from file and keeps them into a list
+	global Passwords
+	Passwords = {}
+	data_file = open("./userdata.txt", "r")
+	while True:
+		usernames = data_file.readline()
+		
+		if not usernames:
+			break;
+		password = data_file.readline()
+		Passwords[usernames.strip()]=password.strip()	
+	data_file.close() 
+	
+	#Prints user and admin comments			
 	for item in Comments_file:
 		if(item[0]=="Admin:"):
 			html+= '''
@@ -309,6 +309,8 @@ def print_forum(text):
     
 option=""
 html=""
+
+#Gets option
 def get_option():
 	global option
 	option=request.POST["option"]
@@ -316,7 +318,7 @@ def get_option():
 	
 	name=request.POST["name"]
 	password=request.POST["password"]
-	comment=request.POST["comment"]
+	comment=request.POST["comment"] 
 	
 	if(option=="Register"):
 		registration=Register(name,password)
@@ -329,6 +331,7 @@ def get_option():
 	elif(option=="Comment"):
 		member=Comment(name,password)
 		if(member==True):
+			#Saves new comment to the file
 			with open('./datafile.txt', 'a') as f:
 				name=name+"\n"
 				comment=comment+"\n"
@@ -343,8 +346,7 @@ def get_option():
 				
 	return htmlify(html)
 		
-	 
-
+		
 def index():
 	global html
 	html=""
@@ -355,7 +357,6 @@ def index():
 def homepage():
 	return server_static('/index.html')
 	
-
 
 def server_static(fname):
    txt = static_file(fname, root='./static_files')
