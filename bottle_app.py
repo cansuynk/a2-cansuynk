@@ -342,7 +342,7 @@ def get_option():
 			index()
 		else:
 			html=""
-			html=print_forum("Your username or password is not corrent")
+			html=print_forum("Your username or password is not correct")
 				
 	return htmlify(html)
 		
