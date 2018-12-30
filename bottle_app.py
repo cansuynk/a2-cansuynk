@@ -332,15 +332,16 @@ def get_option():
 		member=Comment(name,password)
 		if(member==True):
 			if "</" not in comment:
+				if "<" not in comment:
 			#Saves new comment to the file
-				with open('./datafile.txt', 'a') as f:
-					name=name+"\n"
-					comment=comment+"\n"
-					f.write(name)
-					f.write(comment)	
-				option=""
-				member=False
-				index()
+					with open('./datafile.txt', 'a') as f:
+						name=name+"\n"
+						comment=comment+"\n"
+						f.write(name)
+						f.write(comment)	
+					option=""
+					member=False
+					index()
 		else:
 			html=""
 			html=print_forum("Your username or password is not correct")
